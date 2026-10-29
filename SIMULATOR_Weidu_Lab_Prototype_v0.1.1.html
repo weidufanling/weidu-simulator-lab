@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-EfBRJA7tg5VVEUEuzPgtmL63fuMNaX6ygN1kM+zgqiQ='; style-src 'sha256-wpympJUo528276vywSugG2zZXIsCdeP9I+On0yYunVk='; img-src data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="description" content="Explore a fictional catchment, compare invented outcomes and reveal delayed and downstream consequences. A Weidu Lab concept prototype.">
+<title>Simulator: A Small Catchment, Several Futures | Weidu Lab</title>
+<style>:root{color-scheme:light;--paper:#f7f2e7;--ink:#172d30;--muted:#4e6261;--teal:#14575a;--line:#d7d4bf;--gold:#926529;--purple:#734d7d}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:1150px;padding:0 28px;margin:auto}a{color:var(--teal);text-underline-offset:4px}button,select,textarea{font:inherit}button{border:1px solid var(--teal);border-radius:6px;background:var(--teal);color:white;padding:11px 17px;line-height:1.4;cursor:pointer;min-height:46px}.secondary{background:transparent;color:var(--teal)}button:hover{background:#1c696b;color:white}button:disabled{opacity:.55;cursor:default}button[aria-pressed=true]{background:var(--teal);color:white}button:focus-visible,a:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}.status-strip{position:sticky;top:0;z-index:5;background:#173f41;color:#fff8e9;padding:10px 12px;text-align:center;font-size:11px;font-weight:700;letter-spacing:.1em}.status-strip span{margin:0 9px}.skip{position:absolute;top:-100px}.skip:focus{top:48px;background:white;padding:12px;z-index:7}header{padding:28px 0 24px}header nav{display:flex;justify-content:space-between;margin-bottom:38px;font-size:15px}.eyebrow{font-size:12px;letter-spacing:.12em;font-weight:750;color:var(--muted);margin:0 0 10px}h1{font:normal clamp(38px,6.3vw,72px)/1.04 Georgia,"Times New Roman",serif;letter-spacing:-.025em;margin:12px 0 24px}h2{font:normal 31px/1.2 Georgia,"Times New Roman",serif;margin:0 0 15px}h3{font-size:18px;line-height:1.4;margin:0 0 10px}p{margin:0 0 16px}.intro{font-size:24px;line-height:1.4;max-width:700px}.lede{max-width:780px;color:var(--muted)}.notice{background:#ecebdc;border-left:4px solid var(--teal);padding:17px 20px;max-width:880px;font-size:16px}.panel{background:#fffdf6;border:1px solid var(--line);border-radius:12px;padding:26px;margin:20px 0}.guide{display:grid;grid-template-columns:1fr auto;gap:20px;background:#e9eee6}.guide p:last-child{margin:0}.actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.guide .actions{max-width:230px;align-content:center}.section-heading{display:flex;justify-content:space-between;align-items:start;gap:15px;margin-bottom:20px}.section-heading h2{margin-bottom:0}.controls{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}label{display:block;font-size:14px;font-weight:650}select,textarea{display:block;width:100%;margin:7px 0 12px;border:1px solid #9dada4;border-radius:5px;background:#fffdf6;color:var(--ink);padding:10px 8px;min-height:46px}select{font-size:15px}.small{font-size:14px;color:var(--muted)}.controls+.small{margin:4px 0 0}.view-buttons{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}.view-buttons button{min-width:108px}svg{display:block;width:100%;height:auto}svg text{font:600 19px system-ui,sans-serif;fill:#283c39}.map-label{font:600 16px system-ui,sans-serif}.map-small{font:14px system-ui,sans-serif}.map-text{font-size:15px;margin:16px 0}.inset{background:#eeeee1;border-left:3px solid var(--gold);padding:18px;margin:20px 0}.inset p:last-child{margin:0}.decision{border:1px solid #92b3a4;background:#edf3e9;border-radius:6px;padding:20px;margin:18px 0}.decision.refused{background:#fbf0df;border-color:#af7d3c}.decision h3{letter-spacing:.06em}.decision p:last-child,.decision ul:empty{margin:0}.envelope-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0}.envelope-grid article p{font-size:15px;color:var(--muted)}.table-scroll{overflow-x:auto;margin:16px 0}table{width:100%;border-collapse:collapse;text-align:left;font-size:14px}th,td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}th{font-weight:650}thead{background:#eeeee1}caption{text-align:left;font-size:14px;padding:10px}td{font-variant-numeric:tabular-nums}.legend{display:flex;gap:24px;flex-wrap:wrap;font-size:14px;font-weight:650}.model-a{color:var(--teal)}.model-b{color:var(--purple)}details{border-top:1px solid var(--line);padding:18px 0}summary{cursor:pointer;font-weight:650;color:var(--teal);padding:3px 0}details>p,details>ul{margin-top:16px}pre{font:12px/1.6 ui-monospace,SFMono-Regular,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#f0f0e7;padding:16px;border-radius:6px;max-height:480px;overflow-y:auto}textarea{font-weight:400;font-size:15px;resize:vertical}footer{padding:20px 0 36px;font-size:13px;color:var(--muted);max-width:850px}[hidden]{display:none!important}#controls{scroll-margin-top:74px}#scenario-caption{max-width:260px}.landscape{overflow:hidden}@media(max-width:850px){.controls{grid-template-columns:1fr 1fr}.guide{grid-template-columns:1fr}.guide .actions{max-width:none}.section-heading{flex-wrap:wrap}.section-heading button{font-size:14px}main{padding:0 18px}.panel{padding:22px}}@media(max-width:560px){body{font-size:16px}.status-strip{font-size:9px;letter-spacing:.035em;padding:9px 5px}.status-strip span{margin:0 3px}main{padding:0 12px}.panel{padding:18px 14px;margin:15px 0}header{padding-top:20px}header nav{margin-bottom:28px}h1{font-size:43px}h2{font-size:27px}.intro{font-size:21px}.controls{grid-template-columns:1fr}.envelope-grid{grid-template-columns:1fr;gap:10px}.view-buttons button{min-width:0;font-size:14px;padding:9px 10px}.notice{padding:14px}th,td{padding:9px;min-width:90px}.map-label{font-size:18px}.map-small{font-size:16px}.guide .actions{align-items:stretch}.guide .actions button{flex:1}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}@media print{.status-strip{position:static}body{background:white}.panel{break-inside:avoid}button,.controls,.guide{display:none}.panel{border:1px solid #aaa}.table-scroll{overflow:visible}footer{font-size:11px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#controls">Skip to the scenario controls</a>
+<div class="status-strip">FICTIONAL LANDSCAPE <span>·</span> SYNTHETIC VALUES <span>·</span> NO REAL-WORLD ADVICE</div>
+<main>
+<header>
+<nav aria-label="Site"><a href="/lab/">← Weidu Lab</a> <a href="/build-log/">Build Log</a></nav>
+<p class="eyebrow">SIMULATOR · PUBLIC CONCEPT PROTOTYPE · v0.1.1</p>
+<h1>A small catchment,<br>several futures</h1>
+<p class="intro">Change a fictional landscape. Look beyond the first result.</p>
+<p class="lede">An intervention can change what happens locally, later and downstream. Explore those differences in Wattle Bend, an invented catchment with two deliberately simple toy models.</p>
+<p class="notice">Every place, value and outcome here is invented. This prototype cannot predict environmental outcomes or support land-management decisions. It demonstrates an interface and its limits.</p>
+</header>
+<noscript><p class="notice">JavaScript is needed for the interactive example. The explanations and synthetic rule sheet remain available below. No scientific result is available from this page.</p></noscript>
+<section class="guide panel" aria-labelledby="journey-title">
+<div><p class="eyebrow">A FOUR-STEP WALKTHROUGH</p><h2 id="journey-title">Look beyond the first view</h2><p id="guide-text" aria-live="polite">Start with a greener creek corridor, move through time, widen the view and reach a deliberate refusal.</p></div>
+<div class="actions"><button id="guide-start">Start the guided journey</button><button id="guide-back" class="secondary" hidden>Previous step</button><button id="guide-next" hidden>Next step</button></div>
+</section>
+<section id="controls" class="panel" aria-labelledby="scenario-title">
+<div class="section-heading"><h2 id="scenario-title">Choose a scenario</h2><button id="reset" class="secondary">Reset the example</button></div>
+<div class="controls">
+<label for="landscape">Starting landscape<select id="landscape"><option value="dry">Dry and sparse</option><option value="mixed" selected>Mixed condition</option><option value="saturated">Already saturated</option></select></label>
+<label for="weather">Weather pattern<select id="weather"><option value="dry">Prolonged dry weather</option><option value="variable" selected>Variable rainfall</option><option value="intense">Intense rainfall</option></select></label>
+<label for="intervention">Intervention<select id="intervention"><option value="none">No new action</option><option value="planting">Fictional revegetation</option><option value="maintained" selected>Creek structures, maintained</option><option value="neglected">Creek structures, poor maintenance</option></select></label>
+<label for="year">Time horizon<select id="year"><option value="1" selected>Year 1</option><option value="5">Year 5</option><option value="20">Year 20</option><option value="40">Year 40</option></select></label>
+</div>
+<p class="small">These broad labels select invented rules. They do not specify a real intervention, its engineering or a real weather sequence.</p>
+</section>
+<section class="landscape panel" aria-labelledby="landscape-title">
+<div class="section-heading"><div><p class="eyebrow">WATTLE BEND · AN INVENTED PLACE</p><h2 id="landscape-title">The visible landscape</h2></div><p id="scenario-caption" class="small" aria-live="polite"></p></div>
+<div class="view-buttons" role="group" aria-label="Landscape view"><button id="view-surface" class="secondary" aria-pressed="true">Surface</button><button id="view-combined" class="secondary" aria-pressed="false">Combined</button><button id="view-below" class="secondary" aria-pressed="false">Below ground</button></div>
+<svg id="catchment" viewBox="0 0 960 500" role="img" aria-labelledby="map-title map-desc">
+<title id="map-title">Fictional Wattle Bend catchment</title><desc id="map-desc">A schematic landscape with a creek, a small intervention area and a hidden below-ground section. Use the reveal button to show downstream effects and omitted processes. This is not a map of a real place.</desc>
+<defs><pattern id="unknown-pattern" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 12L12 0" stroke="#9b6745" stroke-width="1"/></pattern></defs>
+<rect width="960" height="500" rx="16" fill="#f1ead6"/>
+<g id="surface-layer">
+<path d="M0 158 Q105 70 220 126 T450 138 T680 101 T960 151 L960 294 L0 294Z" fill="#d2d6af"/>
+<path d="M0 220 Q180 124 320 180 T610 184 T960 204 L960 294 L0 294Z" fill="#b4c69d"/>
+<path id="creek-green" d="M92 116 Q200 202 330 194 T550 229 T878 269" stroke="#87a780" stroke-width="40" fill="none"/>
+<path d="M92 116 Q200 202 330 194 T550 229 T878 269" stroke="#367b86" stroke-width="11" fill="none"/>
+<path d="M218 172L242 184 M271 183L290 198 M323 180L331 204" stroke="#80593d" stroke-width="7"/>
+<rect x="193" y="139" width="165" height="88" rx="22" fill="none" stroke="#8e5b2d" stroke-width="3" stroke-dasharray="7 5"/>
+<text x="66" y="65">Surface</text><text x="195" y="122" class="map-label">Intervention footprint</text>
+<text x="420" y="166" class="map-label">Creek corridor</text><text x="67" y="272" class="map-small">Schematic only. No measured distances.</text>
+</g>
+<g id="below-layer" hidden>
+<path d="M0 299H960V500H0Z" fill="#d5b99a"/>
+<path d="M0 384 Q240 328 450 380 T960 359 V500 H0Z" fill="#b3c9bf"/>
+<path d="M0 433 Q220 398 465 425 T960 424" fill="none" stroke="#718f91" stroke-width="3"/>
+<text x="66" y="338">Below ground</text><text x="66" y="474" class="map-small">Invented layers. No geological or groundwater data.</text>
+</g>
+<g id="surface-domain" hidden>
+<path d="M148 95 Q510 15 930 70 L940 282 L174 251Z" fill="none" stroke="#734d7d" stroke-width="3" stroke-dasharray="10 7"/>
+<text x="485" y="64" class="map-label">Wider consequence domain</text>
+<circle cx="824" cy="257" r="22" fill="#fff8e9" stroke="#734d7d" stroke-width="3"/><text x="695" y="306" class="map-label">Downstream receptor</text>
+<rect x="704" y="102" width="188" height="98" fill="url(#unknown-pattern)" stroke="#9b6745" stroke-width="2"/>
+<text x="721" y="135" class="map-label">Unrepresented</text><text x="721" y="157" class="map-label">sediment process</text><text x="721" y="182" class="map-small">Unknown is not zero</text>
+</g>
+<g id="subsurface-domain" hidden>
+<path d="M282 231 Q293 377 497 387 T808 391" fill="none" stroke="#734d7d" stroke-width="6" stroke-dasharray="10 7"/>
+<path d="M789 379L811 391L789 404" fill="none" stroke="#734d7d" stroke-width="4"/>
+<text x="420" y="442" class="map-label">A delayed pathway beyond the footprint</text>
+<circle cx="785" cy="391" r="18" fill="#e8cb9a" stroke="#8e5b2d" stroke-width="3"/>
+</g>
+</svg>
+<p id="map-text" class="map-text" aria-live="polite"></p>
+<button id="reveal" aria-expanded="false" aria-controls="wider-explanation">Reveal what the first view hid</button>
+<div id="wider-explanation" class="inset" hidden><h3>The footprint is smaller than the consequence domain</h3><p>The purple boundary includes a downstream receptor and a delayed below-ground pathway. The hatched area marks an omitted sediment process. This is a teaching diagram: the boundary is drawn by us, and cannot establish that all consequences have been captured.</p><p>A greener corridor does not establish that the wider system benefits. Moving the horizon and showing another layer can change the question.</p></div>
+</section>
+<section class="panel" aria-labelledby="envelope-title">
+<p class="eyebrow">ILLUSTRATIVE CONSEQUENCE ENVELOPE</p><h2 id="envelope-title">What travels with the result</h2>
+<div id="decision" class="decision" role="status"><h3 id="decision-title">TOY COMPARISON ONLY</h3><p id="decision-text"></p><ul id="refusal-reasons"></ul></div>
+<div class="envelope-grid"><article><h3>Early local change</h3><p id="local-story"></p></article><article><h3>Later and further away</h3><p id="delayed-story"></p></article><article><h3>What remains unknown</h3><p>Sediment, ecological change, extreme-event behaviour, cumulative interventions and real receptors are not represented. There is no measured baseline, calibration or validation.</p></article><article><h3>Who may decide</h3><p>This page has no authority over real land or Country. Real work would require legitimate local decision processes, permissions and appropriate Traditional Owner governance before data or knowledge is used.</p></article></div>
+<h3>Compare with no new action</h3><p id="results-caption">Invented indices, 0 to 100. Each index has its own arbitrary scale. A higher number has no shared meaning across rows. Differences are toy arithmetic, not measured effects.</p>
+<div class="table-scroll"><table aria-describedby="results-caption"><thead><tr><th scope="col">Toy index</th><th scope="col">Selected action<br>Model A</th><th scope="col">Selected action<br>Model B</th><th scope="col">No new action<br>Model A</th><th scope="col">No new action<br>Model B</th></tr></thead><tbody id="results"></tbody></table></div>
+<p class="small">No new action is a separate conditional scenario. It is not a claim that a real catchment stays unchanged.</p>
+</section>
+<section class="panel" aria-labelledby="models-title"><h2 id="models-title">Two assumptions, different trajectories</h2><p>Both models use the same invented rule family and starting values. Model B assigns a stronger connection and a shorter delay to the below-ground pathway. Their agreement would not establish independent evidence. Their differences are not probabilities.</p>
+<svg id="chart" viewBox="0 0 800 310" role="img" aria-labelledby="chart-title chart-desc"><title id="chart-title">Illustrative salinity concern across four horizons</title><desc id="chart-desc">Toy index trajectories for Models A and B. The full values appear in the table below.</desc><g id="chart-lines"></g></svg>
+<p class="legend"><span class="model-a">━━ Model A</span> <span class="model-b">┄┄ Model B</span></p>
+<details><summary>Read all trajectory values</summary><div class="table-scroll"><table><caption>Illustrative salinity concern, 0 to 100. Toy values only.</caption><thead><tr><th scope="col">Horizon</th><th scope="col">Model A</th><th scope="col">Model B</th></tr></thead><tbody id="trajectory-values"></tbody></table></div></details>
+</section>
+<section class="panel" aria-labelledby="trace-title"><h2 id="trace-title">Inspect the workings</h2>
+<details><summary>Trace the toy result</summary><p>The current selections and both models' invented intermediate values are shown below. A displayed number does not turn an assumption into an observation.</p><pre id="trace"></pre></details>
+<details><summary>What real evidence would be needed?</summary><ul><li>A coherent, dated baseline with provenance, coverage, measurement uncertainty and permissions.</li><li>Catchment boundaries, downstream receptors and groundwater connections supported by observations.</li><li>Process models tested for the intended place, timescale and use, with their shared ancestry recorded.</li><li>Explicit intervention geometry, engineering, maintenance, failure conditions and alternatives.</li><li>Checks on transformations, conservation and uncertainty when models exchange information.</li><li>Local authority and appropriate Traditional Owner governance, including what must remain restricted.</li><li>Monitoring that can challenge the result, plus clear expiry and refusal conditions.</li></ul><p>This list describes work still needed. No evidence has been collected or scientific review completed for this example.</p></details>
+<details><summary>See the synthetic rule sheet</summary><p>The complete deterministic rules are shown below. Every coefficient is invented. The two models share these formulas, so they are related by design. Nothing here is a scientific estimate.</p><pre id="rules"></pre><p>All results are rounded and clipped to 0 through 100. That clipping is an interface convenience. It is not a physical conservation rule or a validation check.</p></details>
+</section>
+<section class="panel" aria-labelledby="contribute-title"><h2 id="contribute-title">Where could your expertise enter?</h2><p>Choose an area to see what would need to replace the toy rule. You can prepare an interest note locally, then decide whether and where to share it yourself.</p><label for="expertise">Your area<select id="expertise"><option value="hydrology">Surface hydrology</option><option value="groundwater">Groundwater and salinity</option><option value="ecology">Soil and vegetation ecology</option><option value="sediment">Geomorphology and sediment</option><option value="geospatial">Geospatial data and provenance</option><option value="coupling">Model coupling and scientific software</option><option value="validation">Uncertainty, validation and reproducibility</option><option value="governance">Indigenous data governance and Country</option><option value="authority">Public authority, permissions and ethics</option><option value="accessibility">Interface design and accessibility</option></select></label><p id="expertise-detail" class="inset"></p><button id="prepare-note">Prepare my interest note</button><div id="note-area" hidden><label for="interest-note">Your local draft<textarea id="interest-note" rows="9"></textarea></label><div class="actions"><button id="copy-note" class="secondary">Copy note</button><button id="download-note" class="secondary">Download note</button></div><p id="copy-status" role="status"></p></div><p class="small">Nothing is sent by this page. It has no contact form, accounts, analytics, cookies or browser storage. Selections and notes are lost when this tab reloads or closes unless you copy or download them. Your host and browser still handle ordinary page requests.</p></section>
+<footer><p><strong>Recovery edition, 29 October 2026.</strong> Rebuilt with AI assistance from the Simulator project chat specification after the original v0.1 download could not be recovered. These are newly implemented toy rules, not a byte-identical restoration or a validated scientific model. This prototype does not ratify or change the project's constitutional review.</p><p><a href="/lab/">Return to the Lab</a> · <a href="/build-log/">Read the Build Log</a></p></footer>
+</main>
+<script>// All coefficients below are invented for an interface demonstration.
+const horizons = [1, 5, 20, 40];
+const landscapeRules = {
+  dry: {vegetation: 25, runoff: 32, groundwater: 12, salinity: 10},
+  mixed: {vegetation: 44, runoff: 45, groundwater: 25, salinity: 18},
+  saturated: {vegetation: 50, runoff: 68, groundwater: 60, salinity: 38}
+};
+const weatherRules = {
+  dry: {vegetation: -12, runoff: -14, groundwater: -8, salinity: 8},
+  variable: {vegetation: 3, runoff: 5, groundwater: 7, salinity: 3},
+  intense: {vegetation: 4, runoff: 22, groundwater: 18, salinity: 12}
+};
+const interventionRules = {
+  none: {vegetation: 0, runoff: 0, recharge: 0, failure: 0},
+  planting: {vegetation: 14, runoff: -8, recharge: 3, failure: 0},
+  maintained: {vegetation: 24, runoff: -20, recharge: 21, failure: 0},
+  neglected: {vegetation: 19, runoff: -12, recharge: 18, failure: 1}
+};
+const modelRules = {
+  A: {connection: 0.35, lagYears: 20},
+  B: {connection: 0.8, lagYears: 8}
+};
+const bound = n => Math.round(Math.max(0, Math.min(100, n)));
+function toyResult(scenario, modelName, intervention = scenario.intervention, year = scenario.year) {
+  const start = landscapeRules[scenario.landscape];
+  const weather = weatherRules[scenario.weather];
+  const action = interventionRules[intervention];
+  const model = modelRules[modelName];
+  const delay = year / (year + model.lagYears);
+  const connection = model.connection;
+  const slow = (start.groundwater + weather.groundwater + action.recharge) * connection * delay;
+  const failure = action.failure * (year / 40) * (scenario.weather === 'intense' ? 26 : 13);
+  return {
+    vegetation: bound(start.vegetation + weather.vegetation + action.vegetation * (0.65 + 0.35 * year / (year + 5)) - slow * 0.5 - failure),
+    runoff: bound(start.runoff + weather.runoff + action.runoff + failure),
+    groundwater: bound(start.groundwater + weather.groundwater + action.recharge * connection * delay),
+    salinity: bound(start.salinity + weather.salinity + slow * 0.85 + action.recharge * connection * delay - (intervention === 'planting' ? 3 : 0) + failure * 0.6)
+  };
+}
+function refusalReasons(scenario) {
+  const reasons = [];
+  if (scenario.landscape === 'saturated' && scenario.weather === 'intense') reasons.push('The stress example combines a saturated starting state with intense rainfall. Flood behaviour and sediment movement are omitted.');
+  if (scenario.intervention === 'neglected' && scenario.year >= 20) reasons.push('Long-term structural failure is deliberately simplified. The toy rule cannot describe where released water or sediment would go.');
+  return reasons;
+}
+
+const $ = id => document.getElementById(id);
+const labels = {
+  landscape: {dry: 'Dry and sparse', mixed: 'Mixed condition', saturated: 'Already saturated'},
+  weather: {dry: 'Prolonged dry weather', variable: 'Variable rainfall', intense: 'Intense rainfall'},
+  intervention: {none: 'No new action', planting: 'Fictional revegetation', maintained: 'Creek structures, maintained', neglected: 'Creek structures, poor maintenance'}
+};
+const metrics = {vegetation: 'Local vegetation response', runoff: 'Surface runoff pressure', groundwater: 'Delayed groundwater response', salinity: 'Illustrative salinity concern'};
+let view = 'surface';
+let revealed = false;
+let guideStep = -1;
+const guide = [
+  {title: 'Step 1 of 4: the apparent success', text: 'The year-one toy result gives the selected intervention a greener creek corridor and less surface runoff pressure than no new action. This is an invented early effect. It says little about later or wider consequences.', year: 1, landscape: 'mixed', weather: 'variable', intervention: 'maintained', view: 'surface', reveal: false},
+  {title: 'Step 2 of 4: the longer horizon', text: 'Move the same scenario to year twenty. The models now separate more visibly because they assume different below-ground connections and delays. Look at their trajectories and the no-action comparison.', year: 20, landscape: 'mixed', weather: 'variable', intervention: 'maintained', view: 'surface', reveal: false},
+  {title: 'Step 3 of 4: the wider system', text: 'The wider view includes a downstream receptor, a delayed pathway and an unrepresented sediment process. Our drawn boundary cannot prove that every consequence is inside it.', year: 20, landscape: 'mixed', weather: 'variable', intervention: 'maintained', view: 'combined', reveal: true},
+  {title: 'Step 4 of 4: insufficient evidence', text: 'Now use a saturated landscape, intense rainfall, poor maintenance and forty years. Missing processes become material in this deliberately designed stress example. The refusal is an intended result. It does not mean the software has failed.', year: 40, landscape: 'saturated', weather: 'intense', intervention: 'neglected', view: 'combined', reveal: true}
+];
+function scenario() {
+  return {landscape: $('landscape').value, weather: $('weather').value, intervention: $('intervention').value, year: Number($('year').value)};
+}
+function addCell(row, text, heading = false) {
+  const cell = document.createElement(heading ? 'th' : 'td');
+  if (heading) cell.scope = 'row';
+  cell.textContent = text;
+  row.append(cell);
+}
+function svgElement(name, attrs, text) {
+  const element = document.createElementNS('http://www.w3.org/2000/svg', name);
+  Object.entries(attrs).forEach(([key, value]) => element.setAttribute(key, String(value)));
+  if (text !== undefined) element.textContent = text;
+  return element;
+}
+function renderChart(s) {
+  const group = $('chart-lines'); group.replaceChildren();
+  for (let n = 0; n <= 100; n += 25) {
+    const y = 250 - n * 2;
+    group.append(svgElement('line', {x1: 68, x2: 758, y1: y, y2: y, stroke: '#d7d4bf'}));
+    group.append(svgElement('text', {x: 22, y: y + 5, 'font-size': 14}, String(n)));
+  }
+  group.append(svgElement('text', {x: 68, y: 24, 'font-size': 14}, 'Illustrative salinity concern · toy index'));
+  horizons.forEach((year, i) => {
+    const x = 80 + i * 220;
+    group.append(svgElement('text', {x: x - 20, y: 282, 'font-size': 14}, 'Year ' + year));
+  });
+  ['A', 'B'].forEach(name => {
+    const color = name === 'A' ? '#14575a' : '#734d7d';
+    const points = horizons.map((year, i) => [80 + i * 220, 250 - toyResult(s, name, s.intervention, year).salinity * 2]);
+    group.append(svgElement('polyline', {points: points.map(p => p.join(',')).join(' '), fill: 'none', stroke: color, 'stroke-width': 4, 'stroke-dasharray': name === 'A' ? 'none' : '9 6'}));
+    points.forEach(([cx, cy]) => group.append(svgElement('circle', {cx, cy, r: name === 'A' ? 5 : 3, fill: color})));
+  });
+  $('trajectory-values').replaceChildren();
+  horizons.forEach(year => {
+    const row = document.createElement('tr');
+    addCell(row, 'Year ' + year, true);
+    addCell(row, toyResult(s, 'A', s.intervention, year).salinity);
+    addCell(row, toyResult(s, 'B', s.intervention, year).salinity);
+    $('trajectory-values').append(row);
+  });
+}
+function render() {
+  const s = scenario();
+  const a = toyResult(s, 'A'), b = toyResult(s, 'B');
+  const noA = toyResult(s, 'A', 'none'), noB = toyResult(s, 'B', 'none');
+  $('scenario-caption').textContent = labels.landscape[s.landscape] + ' · ' + labels.weather[s.weather] + ' · Year ' + s.year;
+  $('catchment').setAttribute('viewBox', view === 'surface' ? '0 0 960 320' : view === 'below' ? '0 290 960 210' : '0 0 960 500');
+  $('surface-layer').toggleAttribute('hidden', view === 'below');
+  $('below-layer').toggleAttribute('hidden', view === 'surface');
+  $('surface-domain').toggleAttribute('hidden', !revealed || view === 'below');
+  $('subsurface-domain').toggleAttribute('hidden', !revealed || view === 'surface');
+  $('surface-layer').setAttribute('display', view === 'below' ? 'none' : 'inline');
+  $('below-layer').setAttribute('display', view === 'surface' ? 'none' : 'inline');
+  $('surface-domain').setAttribute('display', !revealed || view === 'below' ? 'none' : 'inline');
+  $('subsurface-domain').setAttribute('display', !revealed || view === 'surface' ? 'none' : 'inline');
+  const green = a.vegetation >= 55 ? '#68946a' : a.vegetation >= 35 ? '#91aa78' : '#b7b68b';
+  $('creek-green').setAttribute('stroke', green);
+  ['surface', 'combined', 'below'].forEach(name => $('view-' + name).setAttribute('aria-pressed', String(view === name)));
+  $('map-text').textContent = (view === 'surface' ? 'Surface view shows the corridor and intervention footprint. The below-ground layer is hidden.' : view === 'below' ? 'Below-ground view shows invented layers. The surface is hidden.' : 'Combined view shows the surface and invented below-ground layers.') + (revealed ? ' The wider domain is revealed. Read the explanation below for the full text equivalent.' : ' The wider consequence domain has not yet been revealed.');
+  $('wider-explanation').hidden = !revealed;
+  $('reveal').textContent = revealed ? 'Return to the smaller view' : 'Reveal what the first view hid';
+  $('reveal').setAttribute('aria-expanded', String(revealed));
+  const reasons = refusalReasons(s);
+  $('decision').classList.toggle('refused', reasons.length > 0);
+  $('decision-title').textContent = reasons.length ? 'INSUFFICIENT EVIDENCE' : 'TOY COMPARISON ONLY';
+  $('decision-text').textContent = reasons.length ? 'This stress example deliberately refuses a broad interpretation. The arithmetic below may still illustrate assumptions, but it cannot justify a real-world decision.' : 'You can compare these invented outcomes and inspect the assumptions. No scenario on this page has evidence sufficient for a real-world recommendation.';
+  $('refusal-reasons').replaceChildren();
+  reasons.forEach(reason => {const li = document.createElement('li'); li.textContent = reason; $('refusal-reasons').append(li);});
+  const difference = a.vegetation - noA.vegetation;
+  $('local-story').textContent = s.intervention === 'none' ? 'The selected scenario is no new action. Both pairs of result columns are identical. The toy catchment still changes under the chosen weather and horizon.' : 'At year ' + s.year + ', Model A gives local vegetation an index of ' + a.vegetation + ', compared with ' + noA.vegetation + ' for no new action. The difference is ' + difference + ' invented index points. It is not a measured benefit.';
+  $('delayed-story').textContent = 'Illustrative salinity concern is ' + a.salinity + ' in Model A and ' + b.salinity + ' in Model B. Both reuse the same rules. A stronger assumed connection changes the delayed pathway. The chart shows how this plays out across the four toy horizons.';
+  $('results').replaceChildren();
+  Object.entries(metrics).forEach(([key, label]) => {
+    const row = document.createElement('tr'); addCell(row, label, true);
+    [a, b, noA, noB].forEach(result => addCell(row, result[key]));
+    $('results').append(row);
+  });
+  renderChart(s);
+  $('trace').textContent = JSON.stringify({status: 'Synthetic demonstration only; no measured environmental evidence',scenario: s,startingValues: landscapeRules[s.landscape],weatherModifiers: weatherRules[s.weather],actionModifiers: interventionRules[s.intervention],modelAssumptions: modelRules,outputs: {A: a, B: b},noNewAction: {A: noA, B: noB},stressRefusalReasons: reasons,omissions: ['sediment', 'ecological change', 'extreme-event behaviour', 'cumulative effects', 'real receptors'],permittedUse: 'Explore the interface and invented assumptions only'}, null, 2);
+}
+function exitGuide() {
+  guideStep = -1;
+  $('journey-title').textContent = 'Explore your own scenario';
+  $('guide-text').textContent = 'Your selections now control the example. Start the guided journey at any time to follow its four steps.';
+  $('guide-start').textContent = 'Start the guided journey';
+  $('guide-start').hidden = false; $('guide-back').hidden = true; $('guide-next').hidden = true;
+}
+function applyGuide(index) {
+  guideStep = index;
+  const step = guide[index];
+  ['landscape', 'weather', 'intervention', 'year'].forEach(key => $(key).value = String(step[key]));
+  view = step.view; revealed = step.reveal;
+  $('journey-title').textContent = step.title;
+  $('guide-text').textContent = step.text;
+  $('guide-start').hidden = true;
+  $('guide-back').hidden = index === 0;
+  $('guide-next').hidden = false;
+  $('guide-next').textContent = index === 3 ? 'Finish and explore' : 'Next step';
+  render();
+}
+['landscape', 'weather', 'intervention', 'year'].forEach(id => $(id).addEventListener('change', () => {exitGuide(); render();}));
+['surface', 'combined', 'below'].forEach(name => $('view-' + name).addEventListener('click', () => {view = name; render();}));
+$('reveal').addEventListener('click', () => {revealed = !revealed; if (revealed) view = 'combined'; render();});
+$('guide-start').addEventListener('click', () => applyGuide(0));
+$('guide-back').addEventListener('click', () => {if (guideStep > 0) applyGuide(guideStep - 1);});
+$('guide-next').addEventListener('click', () => {if (guideStep < 3) applyGuide(guideStep + 1); else {exitGuide(); render();}});
+$('reset').addEventListener('click', () => {
+  $('landscape').value = 'mixed'; $('weather').value = 'variable'; $('intervention').value = 'maintained'; $('year').value = '1';
+  view = 'surface'; revealed = false; exitGuide();
+  $('journey-title').textContent = 'Look beyond the first view';
+  $('guide-text').textContent = 'Start with a greener creek corridor, move through time, widen the view and reach a deliberate refusal.';
+  render();
+});
+const expertiseNotes = {
+  hydrology: 'The runoff index is an invented sum. Real work needs observed flows, water balances, event behaviour and justified spatial boundaries.',
+  groundwater: 'Both models use invented connection strengths and delays. Real work needs groundwater levels, connectivity, salinity observations and a defensible response timescale.',
+  ecology: 'A greener corridor is a coloured line and toy index. Real work needs ecological baselines, soil processes, species responses and adverse-effect monitoring.',
+  sediment: 'Sediment is explicitly omitted. Real work needs erosion, transport, deposition and failure pathways before a broad consequence claim could be supported.',
+  geospatial: 'The map has no real coordinates or measured layers. Real work needs dated spatial data, provenance, uncertainty, permitted uses and consistent state times.',
+  coupling: 'The two rules share a single code path. Real federation needs typed exchanges, units, scale transformations, conservation tests, failure handling and reproducible receipts.',
+  validation: 'No calibration or scientific validation has been performed. Real work needs withheld observations, adversarial benchmarks, documented dependencies and meaningful refusal tests.',
+  governance: 'No Indigenous knowledge is represented and no local permission is implied. Any real use needs appropriate local governance from the beginning, including decisions about what must not be collected or exposed.',
+  authority: 'The interface has no decision authority. Real work needs clear intended uses, legitimate thresholds, consent, accountability and limits that remain attached to every result.',
+  accessibility: 'The diagram has a text equivalent and the page uses labelled native controls. Further work needs disability-led comprehension work, assistive-technology testing and checks on whether people understand the toy status.'
+};
+function showExpertise() {$('expertise-detail').textContent = expertiseNotes[$('expertise').value];}
+$('expertise').addEventListener('change', showExpertise);
+$('prepare-note').addEventListener('click', () => {
+  const chosen = $('expertise').selectedOptions[0].textContent;
+  $('interest-note').value = 'Simulator, Weidu Lab: local interest note\n\nArea: ' + chosen + '\n\n' + expertiseNotes[$('expertise').value] + '\n\nI would like to explore a defined contribution in this area. My possible contribution, relevant experience, limits and available time:\n[Add only what you choose to share.]\n\nThis note concerns an unvalidated fictional prototype. It does not imply a partnership, funding, permission to use data or scientific endorsement.\n\nPrepared locally. Nothing has been submitted.';
+  $('note-area').hidden = false; $('copy-status').textContent = 'Draft prepared in this tab. Review it before sharing.';
+});
+$('copy-note').addEventListener('click', async () => {
+  try {await navigator.clipboard.writeText($('interest-note').value); $('copy-status').textContent = 'Note copied. Nothing has been submitted.';}
+  catch {$('copy-status').textContent = 'Automatic copying is unavailable. Select the note and copy it, or use Download note.'; $('interest-note').focus(); $('interest-note').select();}
+});
+$('download-note').addEventListener('click', () => {
+  const blob = new Blob([$('interest-note').value], {type: 'text/plain;charset=utf-8'});
+  const url = URL.createObjectURL(blob); const link = document.createElement('a');
+  link.href = url; link.download = 'simulator-interest-note.txt'; link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  $('copy-status').textContent = 'A local note download was requested. Nothing has been submitted.';
+});
+$('rules').textContent = JSON.stringify({landscapeRules, weatherRules, interventionRules, modelRules}, null, 2) + '\n\n' + toyResult.toString() + '\n\n' + refusalReasons.toString() + '\n\n' + 'bound(n) = round(max(0, min(100, n)))';
+showExpertise(); render();
+</script>
+</body>
+</html>

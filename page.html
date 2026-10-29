@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="__CSP__">
+<meta name="description" content="Explore a fictional catchment, compare invented outcomes and reveal delayed and downstream consequences. A Weidu Lab concept prototype.">
+<title>Simulator: A Small Catchment, Several Futures | Weidu Lab</title>
+<style>__CSS__</style>
+</head>
+<body>
+<a class="skip" href="#controls">Skip to the scenario controls</a>
+<div class="status-strip">FICTIONAL LANDSCAPE <span>·</span> SYNTHETIC VALUES <span>·</span> NO REAL-WORLD ADVICE</div>
+<main>
+<header>
+<nav aria-label="Site"><a href="/lab/">← Weidu Lab</a> <a href="/build-log/">Build Log</a></nav>
+<p class="eyebrow">SIMULATOR · PUBLIC CONCEPT PROTOTYPE · v0.1.1</p>
+<h1>A small catchment,<br>several futures</h1>
+<p class="intro">Change a fictional landscape. Look beyond the first result.</p>
+<p class="lede">An intervention can change what happens locally, later and downstream. Explore those differences in Wattle Bend, an invented catchment with two deliberately simple toy models.</p>
+<p class="notice">Every place, value and outcome here is invented. This prototype cannot predict environmental outcomes or support land-management decisions. It demonstrates an interface and its limits.</p>
+</header>
+<noscript><p class="notice">JavaScript is needed for the interactive example. The explanations and synthetic rule sheet remain available below. No scientific result is available from this page.</p></noscript>
+<section class="guide panel" aria-labelledby="journey-title">
+<div><p class="eyebrow">A FOUR-STEP WALKTHROUGH</p><h2 id="journey-title">Look beyond the first view</h2><p id="guide-text" aria-live="polite">Start with a greener creek corridor, move through time, widen the view and reach a deliberate refusal.</p></div>
+<div class="actions"><button id="guide-start">Start the guided journey</button><button id="guide-back" class="secondary" hidden>Previous step</button><button id="guide-next" hidden>Next step</button></div>
+</section>
+<section id="controls" class="panel" aria-labelledby="scenario-title">
+<div class="section-heading"><h2 id="scenario-title">Choose a scenario</h2><button id="reset" class="secondary">Reset the example</button></div>
+<div class="controls">
+<label for="landscape">Starting landscape<select id="landscape"><option value="dry">Dry and sparse</option><option value="mixed" selected>Mixed condition</option><option value="saturated">Already saturated</option></select></label>
+<label for="weather">Weather pattern<select id="weather"><option value="dry">Prolonged dry weather</option><option value="variable" selected>Variable rainfall</option><option value="intense">Intense rainfall</option></select></label>
+<label for="intervention">Intervention<select id="intervention"><option value="none">No new action</option><option value="planting">Fictional revegetation</option><option value="maintained" selected>Creek structures, maintained</option><option value="neglected">Creek structures, poor maintenance</option></select></label>
+<label for="year">Time horizon<select id="year"><option value="1" selected>Year 1</option><option value="5">Year 5</option><option value="20">Year 20</option><option value="40">Year 40</option></select></label>
+</div>
+<p class="small">These broad labels select invented rules. They do not specify a real intervention, its engineering or a real weather sequence.</p>
+</section>
+<section class="landscape panel" aria-labelledby="landscape-title">
+<div class="section-heading"><div><p class="eyebrow">WATTLE BEND · AN INVENTED PLACE</p><h2 id="landscape-title">The visible landscape</h2></div><p id="scenario-caption" class="small" aria-live="polite"></p></div>
+<div class="view-buttons" role="group" aria-label="Landscape view"><button id="view-surface" class="secondary" aria-pressed="true">Surface</button><button id="view-combined" class="secondary" aria-pressed="false">Combined</button><button id="view-below" class="secondary" aria-pressed="false">Below ground</button></div>
+<svg id="catchment" viewBox="0 0 960 500" role="img" aria-labelledby="map-title map-desc">
+<title id="map-title">Fictional Wattle Bend catchment</title><desc id="map-desc">A schematic landscape with a creek, a small intervention area and a hidden below-ground section. Use the reveal button to show downstream effects and omitted processes. This is not a map of a real place.</desc>
+<defs><pattern id="unknown-pattern" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 12L12 0" stroke="#9b6745" stroke-width="1"/></pattern></defs>
+<rect width="960" height="500" rx="16" fill="#f1ead6"/>
+<g id="surface-layer">
+<path d="M0 158 Q105 70 220 126 T450 138 T680 101 T960 151 L960 294 L0 294Z" fill="#d2d6af"/>
+<path d="M0 220 Q180 124 320 180 T610 184 T960 204 L960 294 L0 294Z" fill="#b4c69d"/>
+<path id="creek-green" d="M92 116 Q200 202 330 194 T550 229 T878 269" stroke="#87a780" stroke-width="40" fill="none"/>
+<path d="M92 116 Q200 202 330 194 T550 229 T878 269" stroke="#367b86" stroke-width="11" fill="none"/>
+<path d="M218 172L242 184 M271 183L290 198 M323 180L331 204" stroke="#80593d" stroke-width="7"/>
+<rect x="193" y="139" width="165" height="88" rx="22" fill="none" stroke="#8e5b2d" stroke-width="3" stroke-dasharray="7 5"/>
+<text x="66" y="65">Surface</text><text x="195" y="122" class="map-label">Intervention footprint</text>
+<text x="420" y="166" class="map-label">Creek corridor</text><text x="67" y="272" class="map-small">Schematic only. No measured distances.</text>
+</g>
+<g id="below-layer" hidden>
+<path d="M0 299H960V500H0Z" fill="#d5b99a"/>
+<path d="M0 384 Q240 328 450 380 T960 359 V500 H0Z" fill="#b3c9bf"/>
+<path d="M0 433 Q220 398 465 425 T960 424" fill="none" stroke="#718f91" stroke-width="3"/>
+<text x="66" y="338">Below ground</text><text x="66" y="474" class="map-small">Invented layers. No geological or groundwater data.</text>
+</g>
+<g id="surface-domain" hidden>
+<path d="M148 95 Q510 15 930 70 L940 282 L174 251Z" fill="none" stroke="#734d7d" stroke-width="3" stroke-dasharray="10 7"/>
+<text x="485" y="64" class="map-label">Wider consequence domain</text>
+<circle cx="824" cy="257" r="22" fill="#fff8e9" stroke="#734d7d" stroke-width="3"/><text x="695" y="306" class="map-label">Downstream receptor</text>
+<rect x="704" y="102" width="188" height="98" fill="url(#unknown-pattern)" stroke="#9b6745" stroke-width="2"/>
+<text x="721" y="135" class="map-label">Unrepresented</text><text x="721" y="157" class="map-label">sediment process</text><text x="721" y="182" class="map-small">Unknown is not zero</text>
+</g>
+<g id="subsurface-domain" hidden>
+<path d="M282 231 Q293 377 497 387 T808 391" fill="none" stroke="#734d7d" stroke-width="6" stroke-dasharray="10 7"/>
+<path d="M789 379L811 391L789 404" fill="none" stroke="#734d7d" stroke-width="4"/>
+<text x="420" y="442" class="map-label">A delayed pathway beyond the footprint</text>
+<circle cx="785" cy="391" r="18" fill="#e8cb9a" stroke="#8e5b2d" stroke-width="3"/>
+</g>
+</svg>
+<p id="map-text" class="map-text" aria-live="polite"></p>
+<button id="reveal" aria-expanded="false" aria-controls="wider-explanation">Reveal what the first view hid</button>
+<div id="wider-explanation" class="inset" hidden><h3>The footprint is smaller than the consequence domain</h3><p>The purple boundary includes a downstream receptor and a delayed below-ground pathway. The hatched area marks an omitted sediment process. This is a teaching diagram: the boundary is drawn by us, and cannot establish that all consequences have been captured.</p><p>A greener corridor does not establish that the wider system benefits. Moving the horizon and showing another layer can change the question.</p></div>
+</section>
+<section class="panel" aria-labelledby="envelope-title">
+<p class="eyebrow">ILLUSTRATIVE CONSEQUENCE ENVELOPE</p><h2 id="envelope-title">What travels with the result</h2>
+<div id="decision" class="decision" role="status"><h3 id="decision-title">TOY COMPARISON ONLY</h3><p id="decision-text"></p><ul id="refusal-reasons"></ul></div>
+<div class="envelope-grid"><article><h3>Early local change</h3><p id="local-story"></p></article><article><h3>Later and further away</h3><p id="delayed-story"></p></article><article><h3>What remains unknown</h3><p>Sediment, ecological change, extreme-event behaviour, cumulative interventions and real receptors are not represented. There is no measured baseline, calibration or validation.</p></article><article><h3>Who may decide</h3><p>This page has no authority over real land or Country. Real work would require legitimate local decision processes, permissions and appropriate Traditional Owner governance before data or knowledge is used.</p></article></div>
+<h3>Compare with no new action</h3><p id="results-caption">Invented indices, 0 to 100. Each index has its own arbitrary scale. A higher number has no shared meaning across rows. Differences are toy arithmetic, not measured effects.</p>
+<div class="table-scroll"><table aria-describedby="results-caption"><thead><tr><th scope="col">Toy index</th><th scope="col">Selected action<br>Model A</th><th scope="col">Selected action<br>Model B</th><th scope="col">No new action<br>Model A</th><th scope="col">No new action<br>Model B</th></tr></thead><tbody id="results"></tbody></table></div>
+<p class="small">No new action is a separate conditional scenario. It is not a claim that a real catchment stays unchanged.</p>
+</section>
+<section class="panel" aria-labelledby="models-title"><h2 id="models-title">Two assumptions, different trajectories</h2><p>Both models use the same invented rule family and starting values. Model B assigns a stronger connection and a shorter delay to the below-ground pathway. Their agreement would not establish independent evidence. Their differences are not probabilities.</p>
+<svg id="chart" viewBox="0 0 800 310" role="img" aria-labelledby="chart-title chart-desc"><title id="chart-title">Illustrative salinity concern across four horizons</title><desc id="chart-desc">Toy index trajectories for Models A and B. The full values appear in the table below.</desc><g id="chart-lines"></g></svg>
+<p class="legend"><span class="model-a">━━ Model A</span> <span class="model-b">┄┄ Model B</span></p>
+<details><summary>Read all trajectory values</summary><div class="table-scroll"><table><caption>Illustrative salinity concern, 0 to 100. Toy values only.</caption><thead><tr><th scope="col">Horizon</th><th scope="col">Model A</th><th scope="col">Model B</th></tr></thead><tbody id="trajectory-values"></tbody></table></div></details>
+</section>
+<section class="panel" aria-labelledby="trace-title"><h2 id="trace-title">Inspect the workings</h2>
+<details><summary>Trace the toy result</summary><p>The current selections and both models' invented intermediate values are shown below. A displayed number does not turn an assumption into an observation.</p><pre id="trace"></pre></details>
+<details><summary>What real evidence would be needed?</summary><ul><li>A coherent, dated baseline with provenance, coverage, measurement uncertainty and permissions.</li><li>Catchment boundaries, downstream receptors and groundwater connections supported by observations.</li><li>Process models tested for the intended place, timescale and use, with their shared ancestry recorded.</li><li>Explicit intervention geometry, engineering, maintenance, failure conditions and alternatives.</li><li>Checks on transformations, conservation and uncertainty when models exchange information.</li><li>Local authority and appropriate Traditional Owner governance, including what must remain restricted.</li><li>Monitoring that can challenge the result, plus clear expiry and refusal conditions.</li></ul><p>This list describes work still needed. No evidence has been collected or scientific review completed for this example.</p></details>
+<details><summary>See the synthetic rule sheet</summary><p>The complete deterministic rules are shown below. Every coefficient is invented. The two models share these formulas, so they are related by design. Nothing here is a scientific estimate.</p><pre id="rules"></pre><p>All results are rounded and clipped to 0 through 100. That clipping is an interface convenience. It is not a physical conservation rule or a validation check.</p></details>
+</section>
+<section class="panel" aria-labelledby="contribute-title"><h2 id="contribute-title">Where could your expertise enter?</h2><p>Choose an area to see what would need to replace the toy rule. You can prepare an interest note locally, then decide whether and where to share it yourself.</p><label for="expertise">Your area<select id="expertise"><option value="hydrology">Surface hydrology</option><option value="groundwater">Groundwater and salinity</option><option value="ecology">Soil and vegetation ecology</option><option value="sediment">Geomorphology and sediment</option><option value="geospatial">Geospatial data and provenance</option><option value="coupling">Model coupling and scientific software</option><option value="validation">Uncertainty, validation and reproducibility</option><option value="governance">Indigenous data governance and Country</option><option value="authority">Public authority, permissions and ethics</option><option value="accessibility">Interface design and accessibility</option></select></label><p id="expertise-detail" class="inset"></p><button id="prepare-note">Prepare my interest note</button><div id="note-area" hidden><label for="interest-note">Your local draft<textarea id="interest-note" rows="9"></textarea></label><div class="actions"><button id="copy-note" class="secondary">Copy note</button><button id="download-note" class="secondary">Download note</button></div><p id="copy-status" role="status"></p></div><p class="small">Nothing is sent by this page. It has no contact form, accounts, analytics, cookies or browser storage. Selections and notes are lost when this tab reloads or closes unless you copy or download them. Your host and browser still handle ordinary page requests.</p></section>
+<footer><p><strong>Recovery edition, 29 October 2026.</strong> Rebuilt with AI assistance from the Simulator project chat specification after the original v0.1 download could not be recovered. These are newly implemented toy rules, not a byte-identical restoration or a validated scientific model. This prototype does not ratify or change the project's constitutional review.</p><p><a href="/lab/">Return to the Lab</a> · <a href="/build-log/">Read the Build Log</a></p></footer>
+</main>
+<script>__JS__</script>
+</body>
+</html>

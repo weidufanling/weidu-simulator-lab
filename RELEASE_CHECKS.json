@@ -1,0 +1,10 @@
+{
+  "review_date": "2026-10-29",
+  "checks": {
+    "synthetic_scenarios_checked": 144,
+    "both_models_checked": true,
+    "rebuilt_application_matches_live_bytes": true,
+    "environmental_validation": false
+  },
+  "scope": "Source packaging and reproducibility. No new real-person or physical-device study was performed."
+}
